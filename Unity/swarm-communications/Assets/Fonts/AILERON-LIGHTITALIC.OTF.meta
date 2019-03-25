@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: 99c2a806c945e9f4fb662995e9b7eee8
+timeCreated: 1548952124
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Aileron
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 876fe3729895ca3468f185d3209fd2ed, type: 3}
+  - {fileID: 12800000, guid: 1a9bedb2f279f134d9902917daf493d2, type: 3}
+  - {fileID: 12800000, guid: 2a03db23e8797fa4086129672fcef789, type: 3}
+  - {fileID: 12800000, guid: 92f334f5d0cf469499a7997ea30a8107, type: 3}
+  - {fileID: 12800000, guid: 0dfc52482f0a8a640930227bd46105f1, type: 3}
+  - {fileID: 12800000, guid: 2bc38e1961fb2db458456beff5a13dc2, type: 3}
+  - {fileID: 12800000, guid: 27fecb6c5cfa2394bbaa6ab01bb9794d, type: 3}
+  - {fileID: 12800000, guid: 5906828ee7ed10149ad26b2b9de92ff6, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
