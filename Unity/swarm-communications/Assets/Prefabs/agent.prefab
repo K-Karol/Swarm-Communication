@@ -48,11 +48,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000011960151828}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0f2b852e1f4f2d4984fc977039b7f6c, type: 3}
+  m_Script: {fileID: 11500000, guid: 28c93a971e6fc9140a1b4c7e97941f72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agID: 0
-  commMethod: 
-  debug: {fileID: 0}
-  inits: 0
-  colour: {r: 1, g: 1, b: 1, a: 1}
+  network_obj: {fileID: 0}

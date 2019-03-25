@@ -48,11 +48,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010346628614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c0a9fc9b44fa9b4d88c994196ed8438, type: 3}
+  m_Script: {fileID: 11500000, guid: 23a3a050d385eed42b543b496c629a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agentNumber: 0
-  communicationMethod: 
-  debug: {fileID: 0}
-  agentP: {fileID: 1000011960151828, guid: 2c0029808276f4646a1526d10827ec8e, type: 2}
-  network: {fileID: 0}
+  agent_prefab: {fileID: 1000011960151828, guid: 2c0029808276f4646a1526d10827ec8e,
+    type: 2}
+  network_obj: {fileID: 0}
