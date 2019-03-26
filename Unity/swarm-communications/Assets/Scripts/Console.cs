@@ -32,7 +32,7 @@ public class Console : MonoBehaviour {
         //functions.Add("Help", Help_func);
         //functions.Add("Copyright", Copyright);
         functions.Add("Node", Node_func);
-        //functions.Add("Visual", Visual_func);
+        functions.Add("Visual", Visual_func);
 
     }
     public void log(string message)
@@ -210,6 +210,17 @@ public class Console : MonoBehaviour {
             
         }
         
+        return 0;
+    }
+    public int Visual_func(String[] args)
+    {
+        if(args[0] == "init")
+        {
+            log("Init. visuals");
+            GameObject topology_obj = GameObject.Find("Topology");
+            Toplogy top_class = topology_obj.GetComponent<Toplogy>(); //spelt topology wrong in class name. That is a commit for future
+            top_class.initialise();
+        }
         return 0;
     }
 }

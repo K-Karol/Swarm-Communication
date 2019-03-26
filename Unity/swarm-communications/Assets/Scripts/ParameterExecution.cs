@@ -51,7 +51,7 @@ public class ParameterExecution : MonoBehaviour {
             Destroy(this.gameObject);
         }
 
-        console = GameObject.Find("Debug").GetComponent<Console>();
+        console  = GameObject.Find("Debug").GetComponent<Console>();
         if (console == null)
         {
             Debug.LogError("debug obj/class console not found");
