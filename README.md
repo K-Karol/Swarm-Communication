@@ -11,3 +11,4 @@ Unity version `5.4.1fa `
 
 ## Builds
 [One-Drive link](https://1drv.ms/f/s!AubV_uaju95k8WvOplFrt0kkA0Ym)
+[WEBGL hosting](https://k-karol.github.io/Swarm-communication-webgl/)
