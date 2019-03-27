@@ -1111,7 +1111,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   separation_force: 0
   attraction_force: 0
-  border_force: 0
   desired_distance: 0
   mass: 0
   boundry:
@@ -1124,6 +1123,8 @@ MonoBehaviour:
     type: 2}
   line_prefab: {fileID: 1000014199987870, guid: 81378321a9042aa4e80b052598f359fd,
     type: 2}
+  matTemplate: {fileID: 2100000, guid: b1d5f1eab50520441acc3a3f60dae10b, type: 2}
+  finished: 0
 --- !u!1 &1131894945
 GameObject:
   m_ObjectHideFlags: 0

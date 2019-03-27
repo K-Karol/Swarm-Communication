@@ -24,6 +24,8 @@ public class Toplogy : MonoBehaviour
     public Line[] lines;
     public Dictionary<Line, LineRenderer> line_renders = new Dictionary<Line, LineRenderer>();
 
+    public Material matTemplate;
+
     public bool finished = false;
 
     public void initialise()
@@ -102,7 +104,7 @@ public class Toplogy : MonoBehaviour
             points[1] = nodes[line.Key.ids[1]].displacement;
             points[1].z = this.transform.position.z;
             line.Value.SetPositions(points);
-            line.Value.material = new Material(Shader.Find("Particles/Alpha Blended"));
+            line.Value.material = new Material(matTemplate);
             line.Value.SetColors(nodes[line.Key.ids[0]].colour, nodes[line.Key.ids[1]].colour);
         }
     }
