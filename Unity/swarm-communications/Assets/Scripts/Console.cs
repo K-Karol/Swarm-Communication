@@ -141,9 +141,6 @@ public class Console : MonoBehaviour {
     }
     public int Node_func(String[] args)
     {
-
-
-
         if (args.Length > 1)
         {
             if (args[1] == "connections")
