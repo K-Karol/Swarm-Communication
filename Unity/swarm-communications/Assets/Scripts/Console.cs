@@ -29,10 +29,10 @@ public class Console : MonoBehaviour {
         {
             Debug.Log("submit button not passed through the inspector");
         }
-        //functions.Add("Help", Help_func);
+        functions.Add("Help", Help_func);
         //functions.Add("Copyright", Copyright);
         functions.Add("Node", Node_func);
-        //functions.Add("Visual", Visual_func);
+        functions.Add("Visual", Visual_func);
 
     }
     public void log(string message)
@@ -109,7 +109,7 @@ public class Console : MonoBehaviour {
     {
         string user_query = user_query_para;
 
-        string[] query_split = user_query.Split('.');
+        string[] query_split = user_query.Split(';');
         if (functions.ContainsKey(query_split[0]))
         {
             List<string> args_list = new List<string>();
@@ -127,19 +127,33 @@ public class Console : MonoBehaviour {
             log("Command does not exist. Enter 'help' for options");
         }
     }
+    public int Help_func(String[] args)
+    {
+        if(args.Length < 1)
+        {
+            log("Help:");
+            sub("Command syntax: Command;Function@value@;Function");
+            sub("Node: ;connect[;all , ;random] ,  ;@agentName@[;connections] , ;list");
+            sub("Visual: ;init , ;values[;separation@float@ , ;attraction@float@ , ;desired@float@]");
+            sub("Copyright");
+        }
+        return 0;
+    }
     public int Node_func(String[] args)
     {
+
+
 
         if (args.Length > 1)
         {
             if (args[1] == "connections")
             {
-                string agent_name = args[0];
-                GameObject target_agent = GameObject.Find(agent_name);
+                String[] agent_name = args[0].Split('@');
+                GameObject target_agent = GameObject.Find(agent_name[1]);
                 if(target_agent != null) {
                     Agent agent_class = target_agent.GetComponent<Agent>();
                     Communications target_communicaitons = agent_class.communications;
-                    log("All connections for: " + agent_name);
+                    log("All connections for: " + agent_name[1]);
                     foreach (var connection in target_communicaitons.active_connections)
                     {
                         string temp_output = "Agent:" + connection.Value.id;
@@ -148,7 +162,7 @@ public class Console : MonoBehaviour {
                 }
                 else
                 {
-                    log("Agent not found");
+                    log("Agent not found / Wrong syntax (Try Node;@Agent:1@;connections");
                 }
                 
             } else
@@ -210,6 +224,67 @@ public class Console : MonoBehaviour {
             
         }
         
+        return 0;
+    }
+    public int Visual_func(String[] args)
+    {
+        GameObject topology_obj = GameObject.Find("Topology");
+        Toplogy top_class = topology_obj.GetComponent<Toplogy>();
+        if (args[0] == "init")
+        {
+            log("Init. visuals");
+             //spelt topology wrong in class name. That is a commit for future
+            top_class.initialise();
+        } else if (args[0] == "values")
+        {
+            string[] split = args[1].Split('@');
+            if(split[0] == "separation")
+            {
+                string value = split[1];
+                float parsed;
+                if(float.TryParse(value, out parsed))
+                {
+                    top_class.separation_force = parsed;
+                }
+                else
+                {
+                    log("Cannot parse float");
+                }
+            } else if (split[0] == "attraction")
+            {
+                string value = split[1];
+                float parsed;
+                if (float.TryParse(value, out parsed))
+                {
+                    top_class.attraction_force = parsed;
+                }
+                else
+                {
+                    log("Cannot parse float");
+                }
+            } else
+            if (split[0] == "desired")
+            {
+                string value = split[1];
+                float parsed;
+                if (float.TryParse(value, out parsed))
+                {
+                    top_class.desired_distance = parsed;
+                }
+                else
+                {
+                    log("Cannot parse float");
+                }
+            }
+            else
+            {
+                log("Fucntion not found");
+            }
+        }
+        else
+        {
+            log("Command not found");
+        }
         return 0;
     }
 }
