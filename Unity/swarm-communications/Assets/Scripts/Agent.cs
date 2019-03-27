@@ -7,7 +7,7 @@ public class Agent : MonoBehaviour {
     public int id;
     //private string comm_method;
     private Console console;
-    private Color color;
+    public Color color;
 
     //public string communication_method { get { return comm_method; } }
     public Communications communications;
@@ -16,7 +16,7 @@ public class Agent : MonoBehaviour {
     // Use this for initialization
     public void initialise(int agent_id_para,string comm_method_para,GameObject network_obj_para) {
         id = agent_id_para;
-        
+        color = UnityEngine.Random.ColorHSV(0f, 1f,0.3f,0.7f,0.6f,1f,1f,1f);
         network_obj = network_obj_para;
         this.name = "Agent:" + id.ToString();
         console = GameObject.Find("Debug").GetComponent<Console>();
