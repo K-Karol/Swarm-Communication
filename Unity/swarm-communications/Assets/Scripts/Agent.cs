@@ -37,7 +37,7 @@ public class Agent : MonoBehaviour {
         {
             List<Agent> available_connections = communications.Scan_network(network_obj);
             System.Random random = new System.Random();
-            int random_number_of_connections = random.Next(1, available_connections.Count);
+            int random_number_of_connections = random.Next(1, available_connections.Count-1);
             List<int> used_up = new List<int>();
             for(int i = 0;i< random_number_of_connections; i++)
             {
