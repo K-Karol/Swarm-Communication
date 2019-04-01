@@ -3,7 +3,7 @@ This is currently my Y13 EPQ project artefact.
 Unity version `5.4.1fa `
 
 ## Current branch
-**25/03/2019** In this branch I will develop the visuals, mainly in the topolgy script and I will provide more comments and explanations
+**01/04/2019** Started on the blockchain branch
 
 ## Progress
 **25/03/2019** Re-Strucure branch is recoding the whole project to establish a foundation. It will be merged into master, but without completed topology. That will be a branch of its own.
