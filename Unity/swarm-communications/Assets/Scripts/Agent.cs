@@ -69,6 +69,9 @@ public class Communications
     public Dictionary<int,Link> active_connections = new Dictionary<int, Link>();
     public Link self_link;
 
+    private Dictionary<int, string> crypto_public = new Dictionary<int, string>();
+    private string crypto_private;
+
     private Console console;
 
     public Communications(int agent_id_para, string comm_method_para, Console console_reference)
@@ -98,6 +101,10 @@ public class Communications
             }
         }
         return available_connections;
+    }
+    public void attatch_key(int id_para,string key)
+    {
+        crypto_public.Add(id_para, key);
     }
     public void connect(Agent target_agent)
     {
