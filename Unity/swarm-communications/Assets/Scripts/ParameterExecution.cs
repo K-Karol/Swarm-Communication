@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Security.Cryptography;
 public class ParameterExecution : MonoBehaviour {
 
     private int number_of_agents;
@@ -20,6 +21,7 @@ public class ParameterExecution : MonoBehaviour {
     public bool init_done = false;
 
     public Dictionary<int, GameObject> agents_dict = new Dictionary<int, GameObject>(); //Keep track of all dynamically generated agents in a dict
+    public Dictionary<int, string> agent_crypto = new Dictionary<int, string>();
 
     public void change_scene(int number_of_agents_para,string comm_method_para) //Upon calling this, it will load itself into the next scene and execute the simulation
     {
@@ -81,6 +83,17 @@ public class ParameterExecution : MonoBehaviour {
             agents_dict.Add(i, Instantiate(agent_prefab, network_obj.transform) as GameObject);
             Agent temp = agents_dict[i].GetComponent<Agent>();
             temp.initialise(i,comm_method,network_obj);
+            Blockchain block_class = new Blockchain();
+            Block[] temp_blockchain = block_class.init_blockchain();
+            temp.communications.attach_blockchain(temp_blockchain);
+        }
+
+        for(int i = 1; i <= agents_dict.Count; i++)
+        {
+            //generate private/public key pair
+            //RSACryptoServiceProvider RSA = new RSACryptoServiceProvider();
+
+
         }
 
     }

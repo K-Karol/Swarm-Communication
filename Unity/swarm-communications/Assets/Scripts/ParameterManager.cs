@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Xml.Linq;
 
 public class ParameterManager : MonoBehaviour {
     private int number_of_agents;
@@ -20,21 +21,21 @@ public class ParameterManager : MonoBehaviour {
 
     public UnityEngine.Object para_prefab; //Gameoject prefab with the ParameterExecution class attatched
 
-
     // Use this for initialization
     void Start () {
         if (para_prefab == null)
         {
             Debug.LogError("Parameter Execution prefab not passed through the inspector");
         }
-	}
+
+
+
+        
+    }
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
     public void Execute()   //called from execution button from GUI
     {
+
         if (Int32.TryParse(agent_input.text, out number_of_agents)) //input validation
         {
             agents_pass = true;
