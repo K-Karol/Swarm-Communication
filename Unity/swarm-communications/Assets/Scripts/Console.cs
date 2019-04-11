@@ -133,7 +133,7 @@ public class Console : MonoBehaviour {
         {
             log("Help:");
             sub("Command syntax: Command;Function@value@;Function");
-            sub("Node: ;connect[;all , ;random] ,  ;@agentName@[;connections] , ;list");
+            sub("Node: ;connect[;all , ;random] ,  ;@agentName@[;connections, ;share;variable@name=value@ , ;print_chain] , ;list");
             sub("Visual: ;init , ;values[;separation@float@ , ;attraction@float@ , ;desired@float@]");
             sub("Copyright");
         }
