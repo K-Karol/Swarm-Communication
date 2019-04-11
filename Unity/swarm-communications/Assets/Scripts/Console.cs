@@ -147,7 +147,8 @@ public class Console : MonoBehaviour {
             {
                 String[] agent_name = args[0].Split('@');
                 GameObject target_agent = GameObject.Find(agent_name[1]);
-                if(target_agent != null) {
+                if (target_agent != null)
+                {
                     Agent agent_class = target_agent.GetComponent<Agent>();
                     Communications target_communicaitons = agent_class.communications;
                     log("All connections for: " + agent_name[1]);
@@ -161,8 +162,44 @@ public class Console : MonoBehaviour {
                 {
                     log("Agent not found / Wrong syntax (Try Node;@Agent:1@;connections");
                 }
-                
-            } else
+
+            }
+            else if (args[1] == "share")
+            {
+                String[] agent_name = args[0].Split('@');
+                GameObject target_agent = GameObject.Find(agent_name[1]);
+                if (target_agent != null)
+                {   //Node.@Agent:1@.share.variable@da="oof"@
+                    //or Node.@Agen:1@.share.command
+                    // either @Agent:2.change_colour.green@
+                    // @{Agent:2,Agent:3}.change_clour.yellow@
+                    // @ALL.change_colour.red@
+                    Agent agent_class = target_agent.GetComponent<Agent>();
+                    Communications target_communicaitons = agent_class.communications;
+                    string[] type = args[2].Split('@');
+                    Debug.Log(type);
+                    if (type[0] == "variable")
+                    {
+                        string[] variable = type[1].Split('=');
+
+                        String[] share_var = new string[] { variable[0], variable[1] };
+                        target_communicaitons.share_variable(share_var);
+
+                    }
+
+                }
+            }
+            else if (args[1] == "print_chain")
+            {
+                String[] agent_name = args[0].Split('@');
+                GameObject target_agent = GameObject.Find(agent_name[1]);
+                if (target_agent != null)
+                {
+                    Agent agent_class = target_agent.GetComponent<Agent>();
+                    agent_class.parse_chain();
+                }
+            }
+            
 
             /*
             else
@@ -184,7 +221,7 @@ public class Console : MonoBehaviour {
                 }
             }
             */
-            if (args[0] == "connect")
+            else if (args[0] == "connect")
             {
                 GameObject execution_obj = GameObject.Find("ExecutionManager");
                 ParameterExecution execution_class = execution_obj.GetComponent<ParameterExecution>();
@@ -201,10 +238,7 @@ public class Console : MonoBehaviour {
             {
                 log("Command not found");
             }
-        }
-        
-        else
-        {
+        } else {
             if (args[0] == "list")
             {
                 log("All agents:");

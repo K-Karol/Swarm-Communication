@@ -83,6 +83,9 @@ public class ParameterExecution : MonoBehaviour {
             agents_dict.Add(i, Instantiate(agent_prefab, network_obj.transform) as GameObject);
             Agent temp = agents_dict[i].GetComponent<Agent>();
             temp.initialise(i,comm_method,network_obj);
+            Blockchain block_class = new Blockchain();
+            Block[] temp_blockchain = block_class.init_blockchain();
+            temp.communications.attach_blockchain(temp_blockchain);
         }
 
         for(int i = 1; i <= agents_dict.Count; i++)
